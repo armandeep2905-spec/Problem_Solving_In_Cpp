@@ -1,0 +1,1 @@
+ cout << setfill('*') << setw(1) << 123;

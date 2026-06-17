@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+class node
+{
+public:
+    int val;
+    node *left;
+    node *right;
+
+    node(int val)
+    {
+        this->val = val;
+        this->left = this->right = NULL;
+    }
+};
+void displaytree(node *root)
+{
+    if (root == NULL)
+        return;
+    cout << root->val << " ";
+    displaytree(root->left);
+    displaytree(root->right);
+};
+
+int sum(node *root){
+    if(root==NULL) return 0;
+    return root->val + sum(root->left)+sum(root->right);
+};
+int size(node *root){
+    if(root==NULL) return 0;
+    return 1+ size(root->left)+size(root->right);
+};
+int main()
+{
+    node *a = new node(1);
+    node *b = new node(2);
+    node *c = new node(3);
+    node *d = new node(4);
+    node *e = new node(5);
+    node *f = new node(6);
+    a->left = b;
+    a->right = c;
+    b->left = d;
+    b->right = e;
+    c->right = f;
+    displaytree(a);
+    cout<<endl;
+    
+    cout<<sum(a)<<endl;
+   
+    cout<<size(a);
+}
